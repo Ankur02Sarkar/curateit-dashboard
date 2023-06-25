@@ -43,8 +43,8 @@ function CompactCard({ param, setExpanded }) {
       </div>
       <div className="detail">
         <Png />
-        <span>${param.value}</span>
-        <span>Last 24 hours</span>
+        <span>{param.value}</span>
+        <span>23 secs ago</span>
       </div>
     </motion.div>
   );
@@ -112,14 +112,17 @@ function ExpandedCard({ param, setExpanded }) {
       }}
       layoutId="expandableCard"
     >
-      <div style={{ alignSelf: "flex-end", cursor: "pointer", color: "white" }}>
+      <span>{param.value}</span>
+      <div style={{
+        alignSelf: "flex-end", cursor: "pointer", color: "white", position: "absolute",
+        top: "5%"
+      }}>
         <UilTimes onClick={setExpanded} />
       </div>
-        <span>{param.title}</span>
       <div className="chartContainer">
-        <Chart options={data.options} series={param.series} type="area" />
+        {/* <Chart options={data.options} series={param.series} type="area" /> */}
       </div>
-      <span>Last 24 hours</span>
+      <span>23 secs</span>
     </motion.div>
   );
 }
